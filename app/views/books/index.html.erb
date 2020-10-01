@@ -24,6 +24,8 @@
 
 			<tbody>
 				<% @books.each do |book| %>
+				 <%= link_to book_path(book.id) do %>
+         <% end %>
 				<tr>
 					<td>
 						<%= link_to user_path(book.user) do %>
