@@ -1,13 +1,16 @@
 class FavoritesController < ApplicationController
 
   def create
-    favorite = Book.new(params[:id])
+    book = Book.find(params[:book_id])
+	  favorite = current_user.favorites.new(book_id: book.id)
     favorite.save
-    redirect_to book_favorites_path
+    redirect_back fallback_location: @book
   end
 
   def destroy
+    book = Book.find(params[:book_id])
+	  favorite = current_user.favorites.find_by(book_id: book.id)
     favorite.destroy
-    redirect_to 'Show'
+    redirect_back fallback_location: @book
   end
 end
