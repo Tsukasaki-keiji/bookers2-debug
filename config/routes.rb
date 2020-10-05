@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top'
   get '/home/about', to: 'homes#about'
+  get '/search', to: 'searches#search'
   devise_for :users
   root 'comment#index'
 
