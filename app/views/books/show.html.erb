@@ -49,10 +49,10 @@
             　　　<%= render 'book_comments/comment', book_comments: @book_comments, book: @book, comment: @comment %>
             </table>
 
-             <%= form_with model: [@book, @comment] do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit "送信" %>
-  　<% end %>
+            <%= form_with model: [@book, @comment] do |f| %>
+              <%= f.text_area :comment %>
+              <%= f.submit "送信" %>
+  　         <% end %>
         </div>
     </div>
 </div>
