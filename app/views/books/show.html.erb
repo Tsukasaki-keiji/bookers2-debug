@@ -42,12 +42,17 @@
                                 <%= link_to 'Destroy', book_path, method: :delete, data: { confirm: 'Are you sure?'} %>
                             </button>
                         </td>
-                    <% end %>
+                　　<% end %>
                 </tr>
             </table>
-                <td id="comments_list">
-            　　　<%= render 'book_comments/comments', book_comments: @book_comments %>
-            　　</td>
+            <table class="comment_list_<%= @book.id %>">
+            　　　<%= render 'book_comments/comment', book_comments: @book_comments, book: @book, comment: @comment %>
+            </table>
+
+             <%= form_with model: [@book, @comment] do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "送信" %>
+  　<% end %>
         </div>
     </div>
 </div>

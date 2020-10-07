@@ -8,6 +8,9 @@ class BookCommentsController < ApplicationController
     comment.book_id = book.id
     comment.save
     @book_comments = Book.find(params[:book_id]).book_comments
+    @book = Book.find(params[:book_id])
+    @comment = BookComment.new
+
     # comment = current_user.book_comments.new(book_comment_params)
     # comment.save
     # redirect_to books_path(book_comment)
@@ -17,7 +20,9 @@ class BookCommentsController < ApplicationController
     comment = BookComment.find(params[:book_id])
     book = comment.book
     comment.destroy
-    @book_comments = Book.find(book_comment.book_id).book_comments
+    @book_comments = book.book_comments
+    @book = Book.find(params[:book_id])
+    @comment = BookComment.new
   end
 
   private
