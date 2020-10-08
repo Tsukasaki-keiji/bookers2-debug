@@ -13,13 +13,10 @@
   </tr>
 <% end %>
 
-  <li>
-    <i class="fa fa-comment"></i>
-      <a href="#comments"><%= book_comments.count %></a>
-  </li>
-
   <div class="comment-list bt style-2" id="comments">
     <div class="float-wrapper">
-      <h2 class="comment-count"><%= book_comments.count %>件コメント</h2>
+      <td></td>
+      <td><h2 class="comment-count"><span id="book_comments_count"><%= book_comments.count %>件コメント</sapn></h2></td>
+      <td></td>
     </div>
   </div>
